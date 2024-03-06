@@ -327,7 +327,7 @@
             if (!(message === '')) {
                 var messageObject = {
                     sender: loggedInUser,
-                    reciever: oppositeUser,
+                    receiver: oppositeUser,
                     message
                 }
                 socket.emit('sendByuser', messageObject);
@@ -434,7 +434,7 @@
             <button onclick = "sendMessage(oppositeUser)" class="send-button">Send</button>
             </div>`
                 document.querySelector('.right').innerHTML = temp
-                getMessage(oppositeUser);
+                getMessage(oppositeUser);                
             } else {
                 oppositeUser = username
                 var temp = `

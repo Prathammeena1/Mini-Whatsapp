@@ -18,7 +18,7 @@ io.on("connection", async function (socket) {
         });
 
         socket.on('sendByuser', async (messageObject) => {
-            const oppositeUser = await userModel.findOneAndUpdate({ username: messageObject.receiver }, { socketId: socket.id });
+            const oppositeUser = await userModel.findOne({ username: messageObject.receiver });
             socket.to(oppositeUser.socketId).emit('sendByServer', messageObject);
             await messageModel.create({ ...messageObject });
         });
